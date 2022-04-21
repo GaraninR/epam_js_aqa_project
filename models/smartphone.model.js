@@ -1,3 +1,7 @@
+/**
+ * SmartPhone class
+ */
+
 class SmartPhone {
 
     model;
