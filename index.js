@@ -4,6 +4,8 @@ const app = express();
 
 function main() {
 
+    const PORT = process.env.PORT || 3000;
+    
     app.get("/", (req, res) => {
         res.send("Hello world!");
     });
@@ -12,7 +14,7 @@ function main() {
         res.send("smphn1; smphn2; smphn3;");
     });
 
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
         console.log("ExpressJS is running!");
     })
 }
