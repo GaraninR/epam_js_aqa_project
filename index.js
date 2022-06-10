@@ -1,7 +1,7 @@
 const SmartPhone = require('./models/smartphone.model');
 const express = require("express");
 const app = express();
-const router = require("./routes/smphns");
+const router = require("./routes/smrtphs");
 
 function main() {
 
