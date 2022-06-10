@@ -7,6 +7,7 @@ function main() {
 
     const PORT = process.env.PORT || 3000;
     app.use("/smphns", router);
+  
     app.listen(PORT, () => {
         console.log("ExpressJS is running!");
     })
