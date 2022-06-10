@@ -13,5 +13,12 @@ router.get("/:id", (req, res) => {
     res.send("smphn1; smphn2; smphn3;");
 });
 
+router.put("/:id", (req, res) => {
+    res.send("smphn1; smphn2; smphn3;");
+});
 
-module.exports = router;
+router.delete("/:id", (req, res) => {
+    res.send("smphn1; smphn2; smphn3;");
+});
+
+module.export = router;
