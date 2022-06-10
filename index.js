@@ -5,11 +5,9 @@ const router = require("./routes/smphns");
 
 function main() {
 
-    // TODO: get port number from environment variable
-    // FIXME: change port immediately
     const PORT = process.env.PORT || 3000;
     app.use("/smphns", router);
-
+  
     app.listen(PORT, () => {
         console.log("ExpressJS is running!");
     })
