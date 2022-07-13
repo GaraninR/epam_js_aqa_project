@@ -132,5 +132,9 @@ dist
 mssql/
 *.csv
 *.sqlite3
+<<<<<<< HEAD
 *.dat
 package-lock.json
+=======
+*.dat
+>>>>>>> 3e2591c00cf4938d8bdf6ad20ef5c6ea46006db8
