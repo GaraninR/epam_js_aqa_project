@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+mssql/
+*.csv
+*.sqlite3
+*.dat
+package-lock.json
