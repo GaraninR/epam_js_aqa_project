@@ -1,0 +1,232 @@
+openapi: '3.0.2'
+info:
+  title: Smartphones Base
+  version: '1.0'
+servers:
+  - url: http://test44.by/v1
+paths:
+  /token:
+    get:
+      tags:
+        - security
+      operationId: getToken
+      parameters:
+        - name: username
+          in: header
+          required: true
+          description: User for service.
+          schema:
+            type : string
+        - name: password
+          in: header
+          required: true
+          schema:
+            type : string
+      responses:
+        '200':
+          description: OK
+          content: 
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Token'
+        '401':
+          description: Not authenticated
+  /smphns:
+    get:
+      tags:
+        - smartphones
+      operationId: getAllSmphns
+      summary: Gets all smartphones
+      parameters:
+        - $ref: '#/components/parameters/Token'
+      responses:
+        '200':
+          description: A JSON array of smartphones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Smphn'
+        '401':
+          description: Unauthorized
+    post:
+      tags:
+        - smartphones
+      summary: Posts a new smartphone.
+      operationId: postNewSmartphone
+      parameters:
+        - $ref: '#/components/parameters/Token'
+      requestBody:
+        description: Data of *Smartphone*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                manufacturerId:
+                  type: number
+                model:
+                  type: string
+                weight:
+                  type: number
+                osId:
+                  type: number
+                owner:
+                  type: number
+              example:
+                  manufacturerId: 1
+                  model: MPX-400
+                  weight: 950
+                  osId: 2
+                  owner: 1
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+  /smphns/{id}:
+    get:
+      tags:
+        - smartphones
+      operationId: getSmphnInformation
+      summary: Returns common information about a smartphone.
+      parameters:
+        - $ref: '#/components/parameters/Token'
+        - name: id
+          in: path
+          required: true
+          description: ID of a smartphone.
+          schema:
+            type : number
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+          content: 
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/Smphn'
+        '400':
+          description: Not found
+    put:
+      tags:
+          - smartphones
+      operationId: putSmphnInformation
+      summary: Puts new smartphone
+      parameters:
+        - $ref: '#/components/parameters/Token'
+        - name: id
+          in: path
+          required: true
+          description: ID of a smartphone.
+          schema:
+            $ref: '#/components/schemas/Smphn'
+      responses:
+        '201':
+          description: Created
+        '202':
+          description: Accepted
+
+    delete:
+      tags:
+          - smartphones
+      operationId: deleteSmphnInformaion
+      summary: Deletes the smartphone.
+      parameters:
+        - $ref: '#/components/parameters/Token'
+        - name: id
+          in: path
+          required: true
+          description: ID of the smartphone.
+          schema:
+            type: number
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Not Found
+  /smphns/{id}/owner:
+    get:
+      tags:
+        - smartphones
+      operationId: getOwnerInformation
+      summary: Returns common information about an owner.
+      parameters:
+        - $ref: '#/components/parameters/Token'
+        - name: id
+          in: path
+          required: true
+          description: ID of a smartphone.
+          schema:
+            type : number
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+          content: 
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/Owner'
+        '400':
+          description: Not found
+
+components:
+  schemas:
+      Token:
+        type: object
+        properties: 
+          token:
+            type: string
+        example:
+            uuid: 0a3fdcf6-7208-4f09-87c0-9b9cf6e28b61
+      Smphn:
+        type: object
+        properties:
+          id:
+            type: number
+          manufacturer:
+            type: string
+          model:
+            type: string
+          weight: 
+            type: number
+          os:
+            type: string
+          owner:
+            type: number
+        example:
+          id: 1
+          manufacturer: Aprior
+          model: MPX-200
+          weight: 750
+          os: Ubuntu
+          owner: 1
+      Owner: 
+          type: object
+          properties:
+            id:
+              type: number
+            name: 
+              type: string
+            officeNumber:
+              type: number
+            occupation:
+              type: string
+            phoneNumber:
+              type: string
+          example:
+            id: 1
+            name: John Smith
+            officeNumber: 345
+            occupation: Senior Office Manager
+            phoneNumber: +38 096 247 58 69
+  parameters:
+    Token:
+      in: header
+      name: token
+      schema:
+        type: string
+        format: uuid
+      required: true

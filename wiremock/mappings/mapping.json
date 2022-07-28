@@ -1,0 +1,15 @@
+{ 
+    "request": { 
+        "method": "GET",
+        "urlPattern": "/getOwner/.*"
+
+    }, 
+    "response": { 
+        "status": 200, 
+        "bodyFileName": "owner.json",
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
+    } 
+}

@@ -1,0 +1,157 @@
+[
+  {
+    "_id": "daf5d228-f938-4db6-bffd-e475b48288f3",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Get Token",
+    "url": "{{SERVER}}:{{PORT}}/token",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-07-25T16:32:05.665Z",
+    "modified": "2022-07-26T11:17:45.024Z",
+    "headers": [
+      {
+        "name": "username",
+        "value": "user"
+      },
+      {
+        "name": "password",
+        "value": "1111"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.uid",
+        "action": "setto",
+        "value": "{{TOKEN}}"
+      }
+    ]
+  },
+  {
+    "_id": "265b954e-b3b7-4e1b-aa7f-b7b07f8f7e80",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Get Smartphones",
+    "url": "{{SERVER}}:{{PORT}}/smphns",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-07-26T10:33:38.167Z",
+    "modified": "2022-07-26T11:16:28.627Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{TOKEN}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "71c4a507-5346-4714-92d9-55edb23cea41",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Create Smartphone",
+    "url": "{{SERVER}}:{{PORT}}/smphns",
+    "method": "POST",
+    "sortNum": 22500,
+    "created": "2022-07-26T10:51:36.464Z",
+    "modified": "2022-07-26T12:13:56.922Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{TOKEN}}",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"manufacturerId\": 1,\n  \"model\": \"MPX-400\",\n  \"weight\": 950,\n  \"osId\": 2,\n  \"owner\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3d557a15-c744-4636-8589-ce558acadb0d",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Get Smartphon by ID",
+    "url": "{{SERVER}}:{{PORT}}/smphns/{{SMPHNID}}",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2022-07-26T11:20:02.576Z",
+    "modified": "2022-07-26T11:20:51.202Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{TOKEN}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4bfdb936-0563-4e66-bb4e-83e610c5722a",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Put Smartphon by ID",
+    "url": "{{SERVER}}:{{PORT}}/smphns/{{SMPHNID}}",
+    "method": "PUT",
+    "sortNum": 27500,
+    "created": "2022-07-26T11:24:06.340Z",
+    "modified": "2022-07-26T11:29:07.067Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{TOKEN}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": \"{{IDFORCHANGE}}\",\n  \"manufacturerId\": 1,\n  \"model\": \"MPX-400\",\n  \"weight\": 950,\n  \"osId\": 2,\n  \"owner\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "670540c3-ff2c-4977-b265-503bd157b60d",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Delete Smartphon by ID",
+    "url": "{{SERVER}}:{{PORT}}/smphns/{{IDFORDELETE}}",
+    "method": "DELETE",
+    "sortNum": 28750,
+    "created": "2022-07-26T11:31:06.031Z",
+    "modified": "2022-07-26T11:32:20.693Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{TOKEN}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c35358ab-131e-4689-b6dc-118b73583447",
+    "colId": "667dd55f-894e-4e86-87a4-7d7c6690142e",
+    "containerId": "",
+    "name": "Get Owner by ID",
+    "url": "{{SERVER}}:{{PORT}}/smphns/{{SMPHNID}}/owner",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-07-26T12:10:51.763Z",
+    "modified": "2022-07-26T12:11:32.455Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{TOKEN}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  }
+]

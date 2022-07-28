@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "b09b426c-a0fd-4aca-862f-b72ed05b9c69",
+    "name": "DEV",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-07-25T16:32:16.811Z",
+    "modified": "2022-07-26T11:32:12.728Z",
+    "data": [
+      {
+        "name": "SERVER",
+        "value": "127.0.0.1"
+      },
+      {
+        "name": "PORT",
+        "value": "3000"
+      },
+      {
+        "name": "TOKEN",
+        "value": "e1098d9b-2a08-406f-9d58-a1000ae0ea1e"
+      },
+      {
+        "name": "SMPHNID",
+        "value": "1"
+      },
+      {
+        "name": "IDFORCHANGE",
+        "value": "8"
+      },
+      {
+        "name": "IDFORDELETE",
+        "value": "100"
+      }
+    ]
+  }
+]
